@@ -2,8 +2,7 @@
 $(function() {
     
     // -- Déclaration de Variables
-    var CollectionDeContacts = ['nom','prenom','email','tel'];
-    console.log(CollectionDeContacts);
+    var CollectionDeContacts = [];
 
     /* --------------------------------------------------------------
                         DECLARATION DES FONCTIONS
@@ -11,21 +10,59 @@ $(function() {
 
     // -- Fonction ajouterContact(Contact) : Ajouter un Contact dans le tableau de Contacts, mettre à jour le tableau HTML, réinitialiser le formulaire et afficher une notification.
     function ajouterContact(UnContact) {
+<<<<<<< HEAD
                  var prenom, nom, email, tel;
                  nom = $('#nom');
                  prenom = $('#prenom');
                  email = $('#email');
                  tel = $('#tel');     
+=======
+
+        CollectionDeContacts.push(UnContact);
+        console.log(CollectionDeContacts);
+        $('.aucuntcontact').hide();
+        $(`
+            <tr>
+                <td>${UnContact.nom}</td>
+                <td>${UnContact.prenom}</td>
+                <td>${UnContact.email}</td>
+                <td>${UnContact.tel}</td>
+            </tr>
+        `).appendTo($('#LesContacts > tbody'));
+
+        reinitialisationDuFormulaire();
+        afficheUneNotification();
+>>>>>>> a2a8986a90d1c2f738c279177490bff3c5529f36
     }
 
     // -- Fonction RéinitialisationDuFormulaire() : Après l'ajout d'un contact, on remet le formulaire à 0 !
-    function reinitialisationDuFormulaire() {}
+    function reinitialisationDuFormulaire() {
+        $('#contact').get(0).reset();
+        $('#contact .form-control').val('');
+    }
 
     // -- Affichage d'une Notification
-    function afficheUneNotification() {}
+    function afficheUneNotification() {
+        $('.alert-contact').fadeIn().delay(4000).fadeOut();
+    }
+
 
     // -- Vérification de la présence d'un Contact dans Contacts
-    function estCeQunContactEstPresent(UnEmail) {}
+    function estCeQunContactEstPresent(UnEmail) {
+        //-- Boolen qui indique la présence d'un contact dans ma collection.
+        let estPresent = false;
+
+        //-- On parcourt le tableau à la recherche d'une correspondance.
+        for (let i = 0 ; i < CollectionDeContacts.length; i++){
+            if (UnEmail === CollectionDeContacts[i].email){
+                //-- Si une correspondance est trouvé 'estpresent" passe à VRAI
+                estPresent = true;
+                break;
+            }
+        }//-- endfor
+        //--on retourne le booleen
+        return estPresent;
+    }
 
     // -- Vérification de la validité d'un Email
     // : https://paulund.co.uk/regular-expression-to-validate-email-address
@@ -80,7 +117,6 @@ $(function() {
         }
         //-- Dans le cas d'une boucle de vérification
         let ChampsAVerifier = $('#contact input:not(input[type=submit])');
-        console.log(ChampsAVerifier);
         for (let i = 0 ; i < ChampsAVerifier.length ; i++) {
             let champ = ChampsAVerifier[i];
             if($(champ).val().length == 0) {
@@ -90,6 +126,7 @@ $(function() {
                 mesInformationsSontValides = false;
             }
         }
+        
 
 
         // -- Si mesInformationsSontValides
@@ -103,10 +140,14 @@ $(function() {
             }
             console.log(Contact);
         }
-        // -- Sinon...
-        else {
-            alert('ATTENTION\nVeuillez remplir tout les champs.');
+        if (estCeQunContactEstPresent(contact.email)){
+            alert('ATTENTION\nCe COntact est déjà présent.');
         }
+        else {
+            ajouterContact('contact');
+        }
+        // -- Sinon...
+        
     });
 
 }); // -- Fin de jQuery READY !

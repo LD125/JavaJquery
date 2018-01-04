@@ -1,0 +1,102 @@
+.container-fluid {
+    background-color: #000; 
+}
+/*********************** Header*/
+header nav.navbar {
+    margin: 0 auto;
+    border-radius: 0;
+    border: 0;
+}
+header nav ul {
+    margin: 0 auto;
+    list-style: none;
+    padding: 0;
+}
+header nav ul li.col-md-1{
+    padding: 1%;
+
+}
+header nav ul li a{
+    text-decoration: none;
+    color: #fff;
+    font-size: 1.2em;
+}
+/******************************** Second header*/
+#header2 {
+    background: #111;
+}
+#header2 ul {
+    list-style: none;
+    padding: 0;
+}
+/****************************** Bandeau 1*/
+.bandeau1 {
+    background-image: url("../img/hero_large.jpg");
+    background-repeat: no-repeat;
+    min-height: 522px;
+
+}
+main h1{
+    font-size: 3.5em;
+    margin: 7.5% 0 0 0;
+    color: #fff;
+    text-align: center;
+}
+main h2{
+    font-weight: 100;
+    font-family: sans-serif;
+    font-size: 3.5em;
+    margin: .5% 0 0 0;
+    color: #fff;
+    text-align: center;
+}
+main span {
+    font-size: 1.5em;
+    text-align: center;
+    color: #fff;
+}
+/****************************** Bandeau 2*/
+.section2{
+    background-color: #fff;
+    min-height: 350px;
+}
+.left1{
+    min-height: 330px;  
+    margin-top: 20px; 
+}
+.left2{
+    background-image: url("../img/iPhone.png");
+    background-repeat: no-repeat;
+    min-height: 330px;  
+    margin-top: 20px; 
+}
+.right1{
+    margin-top: 20px; 
+    min-height: 330px;  
+}
+.section2 h2 {
+    color: #000; 
+    margin-top: 10%;
+    font-size: 2.5em;
+}
+.section2 p {
+    color: #000; 
+    font-size: 1.5em;
+    text-align: center;
+}
+.section2 p a {
+    font-size: 1.8em;
+    text-decoration: none;
+    color: dodgerblue;
+}
+/**************************** Bandeau 3*/
+.section3{
+    background-color: #000;
+    min-height: 500px;
+}
+.section3 .col-md-12 {
+    height: 150px;
+}
+.section3 .col-md-12 h2 {
+    margin: 3% 0 0 0;
+}

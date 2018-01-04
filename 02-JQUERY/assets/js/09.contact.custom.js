@@ -10,7 +10,13 @@ $(function() {
     -------------------------------------------------------------- */
 
     // -- Fonction ajouterContact(Contact) : Ajouter un Contact dans le tableau de Contacts, mettre à jour le tableau HTML, réinitialiser le formulaire et afficher une notification.
-    function ajouterContact(UnContact) {}
+    function ajouterContact(UnContact) {
+                 var prenom, nom, email, tel;
+                 nom = $('#nom');
+                 prenom = $('#prenom');
+                 email = $('#email');
+                 tel = $('#tel');     
+    }
 
     // -- Fonction RéinitialisationDuFormulaire() : Après l'ajout d'un contact, on remet le formulaire à 0 !
     function reinitialisationDuFormulaire() {}

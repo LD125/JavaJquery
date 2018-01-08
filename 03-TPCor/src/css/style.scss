@@ -1,0 +1,10 @@
+@import "../../bower_components/bootstrap-sass/assets/stylesheets/bootstrap";
+@import url("https://fonts.googleapis.com/css?family=Roboto:300,400");
+@import "variables";
+
+body {
+    background-color: $fond-site;
+}
+h1, h2, h3 {
+    font-family: $police-principale;
+}

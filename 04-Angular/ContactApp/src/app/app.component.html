@@ -1,0 +1,39 @@
+<header>
+  <nav class="navbar navbar-inverse">
+    <div class="navbar-header">
+      <a href="/" class="navbar-brand">Mes Contacts</a>
+    </div>
+  </nav>
+</header> 
+<div class="row">
+  <div class="col-sm-4">
+    <!-- NgIf permet de faire le rendu html de la liste que si le tableau "contacts" contient des objets
+     NgFor is a directive that iterates over collection of data. It is used to customize data display. Whenever there is change in collection of data at runtime, that will be updated in data display iterated by NgFor directive
+    -->
+    <div *ngIf="contacts.length">
+      <ul class="list-group">
+          <li class="list-group-item" 
+              *ngFor="let contact of contacts"
+              (click)="choisirUnContact(contact)"
+              [class.active]="contact === contactActif">
+              {{getNomComplet(contact)}}
+          </li>
+        </ul>
+    </div>
+  </div> 
+  <div class="col-sm-8">
+      <div class="jumbotron" *ngIf="contactActif" >
+        <h2>
+          {{contactActif.prenom}}
+          {{contactActif.nom}}
+          <small>{{contactActif.email}}</small>
+        </h2>
+        <input class="form-control" type="text" placeholder="Saisissez votre Prénom"
+        [(ngModel)]="contactActif.prenom">
+        <br>
+        <input class="form-control" type="text" placeholder="Saisissez votre Nom"
+        [(ngModel)]="contactActif.nom">
+        </div>
+  </div>
+</div>
+<pre>{{ contactActif | json}}</pre>

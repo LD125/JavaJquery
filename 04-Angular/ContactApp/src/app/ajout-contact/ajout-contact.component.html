@@ -1,0 +1,18 @@
+<form #form="ngForm">
+  <!--Grace a l'identifiant #form plus haut, je peux connaitre l'état de validation du form -->
+  <pre>{{form.valid}}</pre>
+  <div class="form-group">
+  <input type="text" class="form-control" name="prenom" required placeholder="Saisissez votre prénom..." #prenom="ngModel" [(ngModel)]="nouveauContact.prenom">
+  </div>  
+<form #form="ngForm">
+  <div class="form-group">
+  <input type="text" class="form-control" name="nom" required placeholder="Saisissez votre nom..." #nom="ngModel" [(ngModel)]="nouveauContact.nom">
+  </div>  
+<form #form="ngForm">
+  <div class="form-group">
+  <input type="text" class="form-control" name="email" required placeholder="Saisissez votre email..." #email="ngModel" [(ngModel)]="nouveauContact.email">
+  </div>
+  <button type="submit" class="btn btn-block">Ajouter le Contact</button>  
+</form>
+<br>
+<pre>{{nouveauContact | json}}</pre>

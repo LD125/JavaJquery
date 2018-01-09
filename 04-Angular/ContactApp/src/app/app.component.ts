@@ -1,19 +1,11 @@
 //--Importation de "Component" via @angulare/core
 //-- Pour déclarer une classe comme commposant de notre application, on importe "Component" via @angular/core
 import { Component } from '@angular/core';
-/**
- * Création d'une interface Contact
- * cela me permet de définir la forme/structure de mes objets contact.d
- */
-interface Contact {
-  id     : number;
-  prenom : string;
-  nom    : string;
-  email?  : string;
-}
-interface ContactArray {
+import { Contact } from './model/contact.interface';
+
+/**interface ContactArray {
   [index: number] : Contact;
-}
+} */
 /**
  * @Component est ce qu'on appelle un décorateur.
  * Il va nous permettre de définir 3 paramètres essentiels à notre application
@@ -49,7 +41,7 @@ export class AppComponent {
     email   : "lounis.djadel@gmail.com",
   }
   //--- Tableau contenant collection de contacts
-  contacts:ContactArray = [
+  contacts:Contact[] = [
     {id: 1, prenom:"Lounis", nom:"DJADEL"},
     {id: 2, prenom:"Francis", nom:"ALBERT"},
     {id: 3, prenom:"Jean", nom:"DIDIER"},

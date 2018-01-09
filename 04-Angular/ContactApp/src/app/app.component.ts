@@ -1,3 +1,4 @@
+import { AjoutContactComponent } from './ajout-contact/ajout-contact.component';
 //--Importation de "Component" via @angulare/core
 //-- Pour déclarer une classe comme commposant de notre application, on importe "Component" via @angular/core
 import { Component } from '@angular/core';
@@ -56,8 +57,11 @@ export class AppComponent {
 //-- Choix de mon utilisateur actif contactActif;
 contactActif;
 //-- Permet de définir un contact actif @param {contact} UnContact
-choisirUnContact = (UnContact:Contact) => {
-  this.contactActif = UnContact;
-  console.log(this.contactActif);
+  choisirUnContact = (UnContact:Contact) => {
+    this.contactActif = UnContact;
+    console.log(this.contactActif);
+}
+  ajouterContactDansListe(event) {
+    this.contacts.push(event.contact);
 }
 }

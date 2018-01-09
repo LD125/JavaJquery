@@ -1,18 +1,35 @@
-<form #form="ngForm">
+<form #form="ngForm" (submit)="submitContact()" *ngIf="active">
   <!--Grace a l'identifiant #form plus haut, je peux connaitre l'état de validation du form -->
-  <pre>{{form.valid}}</pre>
-  <div class="form-group">
+  <pre>{{prenom.invalid}}</pre>
+  <div class="form-group"
+  [class.has-error]="prenom.invalid && prenom.touched">
   <input type="text" class="form-control" name="prenom" required placeholder="Saisissez votre prénom..." #prenom="ngModel" [(ngModel)]="nouveauContact.prenom">
+
+  <span class="help-block" *ngIf="prenom.invalid && prenom.touched">Vous devez saisir votre prénom</span>
   </div>  
 <form #form="ngForm">
-  <div class="form-group">
+
+  <pre>{{nom.invalid}}</pre>
+
+  <div class="form-group"
+  [class.has-error]="nom.invalid && nom.touched">
   <input type="text" class="form-control" name="nom" required placeholder="Saisissez votre nom..." #nom="ngModel" [(ngModel)]="nouveauContact.nom">
+
+  <span class="help-block" *ngIf="nom.invalid && nom.touched">Vous devez saisir votre nom</span>
   </div>  
 <form #form="ngForm">
-  <div class="form-group">
+
+  <pre>{{email.invalid}}</pre>
+
+  <div class="form-group"
+  [class.has-error]="email.invalid && email.touched">
   <input type="text" class="form-control" name="email" required placeholder="Saisissez votre email..." #email="ngModel" [(ngModel)]="nouveauContact.email">
+
+  <span class="help-block" *ngIf="email.invalid && email.touched">Vous devez saisir votre email</span>
   </div>
-  <button type="submit" class="btn btn-block">Ajouter le Contact</button>  
+  <button type="submit" class="btn btn-block"
+  [disabled]="form.invalid">
+  Ajouter le Contact</button>  
 </form>
 <br>
 <pre>{{nouveauContact | json}}</pre>

@@ -20,7 +20,9 @@
           </li>
         </ul>
     </div>
-    <app-ajout-contact></app-ajout-contact>
+    <app-ajout-contact
+      (unContactEstCree)="ajouterContactDansListe($event)">
+    </app-ajout-contact>
   </div> 
   <div class="col-sm-8">
       <app-profil-contact [contact]="contactActif"></app-profil-contact>
